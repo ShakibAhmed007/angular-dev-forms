@@ -1,6 +1,14 @@
-<label>
-  Name:
-  <input type="text" [formControl]="name">
-</label>
-
-<p>{{name.value}}</p>
+<form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+  
+  <label>
+     Name:
+    <input type="text" formControlName="name">
+  </label>
+  <br><br>
+  <label>
+    Password:
+    <input type="password" formControlName="password">
+  </label>
+  <br><br>
+  <button type="submit" [disabled]="!loginForm.valid">Submit</button>
+</form>
