@@ -33,4 +33,8 @@ export class ReactiveFormComponent implements OnInit {
       }
     });
   }
+
+  setValue() {
+    this.reactiveForm.controls['name'].setValue('SKB');
+  }
 }
