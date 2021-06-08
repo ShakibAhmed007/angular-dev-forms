@@ -1,5 +1,5 @@
-<form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
-  
+<form [formGroup]="reactiveForm" (ngSubmit)="onSubmit()">
+
   <label>
      Name:
     <input type="text" formControlName="name">
@@ -10,5 +10,17 @@
     <input type="password" formControlName="password">
   </label>
   <br><br>
+  <div formGroupName="address">
+    <label>
+    Street:
+    <input type="password" formControlName="street">
+  </label>
+    <br><br>
+    <label>
+    City:
+    <input type="password" formControlName="city">
+  </label>
+    <br><br>
+  </div>
   <button type="submit" [disabled]="!loginForm.valid">Submit</button>
 </form>

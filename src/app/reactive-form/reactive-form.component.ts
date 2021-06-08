@@ -7,9 +7,13 @@ import { FormControl, FormGroup } from '@angular/forms';
   styleUrls: ['./reactive-form.component.css']
 })
 export class ReactiveFormComponent implements OnInit {
-  loginForm = new FormGroup({
+  reactiveForm = new FormGroup({
     name: new FormControl(''),
-    password: new FormControl('')
+    password: new FormControl(''),
+    address: new FormGroup({
+      street: new FormControl(''),
+      city: new FormControl('')
+    })
   });
   constructor() {}
 
@@ -17,6 +21,6 @@ export class ReactiveFormComponent implements OnInit {
 
   onSubmit() {
     // TODO: Use EventEmitter with form value
-    console.warn(this.loginForm.value);
+    console.warn(this.reactiveForm.value);
   }
 }
