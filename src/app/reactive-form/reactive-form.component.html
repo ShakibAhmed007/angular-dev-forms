@@ -13,14 +13,15 @@
   <div formGroupName="address">
     <label>
     Street:
-    <input type="password" formControlName="street">
+    <input type="text" formControlName="street">
   </label>
     <br><br>
     <label>
     City:
-    <input type="password" formControlName="city">
+    <input type="text" formControlName="city">
   </label>
     <br><br>
   </div>
   <button type="submit" [disabled]="!reactiveForm.valid">Submit</button>
+  <button (click)="updateValue()">Update Value</button>
 </form>

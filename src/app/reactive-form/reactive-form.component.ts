@@ -20,7 +20,17 @@ export class ReactiveFormComponent implements OnInit {
   ngOnInit() {}
 
   onSubmit() {
-    // TODO: Use EventEmitter with form value
     console.warn(this.reactiveForm.value);
+  }
+
+  updateValue() {
+    this.reactiveForm.patchValue({
+      name: 'Nancy',
+      password: '12345',
+      address: {
+        street: '123 Drew Street',
+        city: 'Dhaka'
+      }
+    });
   }
 }
