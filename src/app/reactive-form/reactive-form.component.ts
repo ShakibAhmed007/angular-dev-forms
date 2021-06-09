@@ -26,6 +26,7 @@ export class ReactiveFormComponent implements OnInit {
 
   onSubmit() {
     console.log(this.reactiveForm.value);
+    console.log(this.reactiveForm.controls['name'].value);
   }
 
   updateValue() {
