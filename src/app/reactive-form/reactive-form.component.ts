@@ -1,5 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup , Validators} from '@angular/forms';
+import {
+  FormBuilder,
+  FormControl,
+  FormGroup,
+  Validators
+} from '@angular/forms';
 
 @Component({
   selector: 'app-reactive-form',
@@ -20,7 +25,7 @@ export class ReactiveFormComponent implements OnInit {
   ngOnInit() {}
 
   onSubmit() {
-    console.warn(this.reactiveForm.value);
+    console.log(this.reactiveForm.value);
   }
 
   updateValue() {
