@@ -22,6 +22,8 @@
   </label>
     <br><br>
   </div>
+  <p> Form Status : {{reactiveForm.status}} </p>
+  <br>
   <button type="submit" [disabled]="!reactiveForm.valid">Submit</button>
   <button (click)="updateValue()">Update Form Value</button>
   <button (click)="setValue()">Set form field value</button>
