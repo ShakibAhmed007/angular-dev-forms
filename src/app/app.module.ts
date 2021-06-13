@@ -44,11 +44,6 @@ import { MatTreeModule } from '@angular/material/tree';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatFormFieldModule } from '@angular/material/form-field';
 
-const appRoutes: Routes = [
-  { path: 'reactive-form', component: ReactiveFormComponent },
-  { path: '**', redirectTo: 'reactive-form' }
-];
-
 @NgModule({
   imports: [
     CommonModule,
@@ -92,9 +87,9 @@ const appRoutes: Routes = [
     MatTabsModule,
     MatToolbarModule,
     MatTooltipModule,
-    MatTreeModule,
-    RouterModule.forRoot(appRoutes)
+    MatTreeModule
   ],
+
   declarations: [AppComponent, HelloComponent, ReactiveFormComponent],
   bootstrap: [AppComponent]
 })
