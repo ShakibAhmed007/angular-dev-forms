@@ -12,9 +12,11 @@ import {
   styleUrls: ['./reactive-form.component.css']
 })
 export class ReactiveFormComponent implements OnInit {
+  stateList: string[] = ['Dhaka', 'Khulna', 'Barisal'];
   reactiveForm = this.fb.group({
     name: ['', Validators.required],
     password: ['', [Validators.required, Validators.minLength(5)]],
+    state: ['', Validators.required],
     address: this.fb.group({
       street: ['', Validators.required],
       city: ['']
