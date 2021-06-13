@@ -29,7 +29,10 @@ export class ReactiveFormComponent implements OnInit {
   ngOnInit() {}
 
   onSubmit() {
+    // Get all value
     console.log(this.reactiveForm.value);
+
+    // Get specific form field value
     console.log(this.reactiveForm.controls['name'].value);
   }
 

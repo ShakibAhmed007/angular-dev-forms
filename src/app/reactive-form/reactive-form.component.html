@@ -50,9 +50,25 @@
       </div>
       <p>Form Status : {{reactiveForm.status}}</p>
       <br />
-      <button type="submit" [disabled]="!reactiveForm.valid">Submit</button>
-      <button (click)="updateValue()">Update Form Value</button>
-      <button (click)="setValue()">Set form field value</button>
+
+      <mat-divider></mat-divider>
+      <section>
+        <div class="example-button-row">
+          <button
+            mat-raised-button
+            type="submit"
+            [disabled]="!reactiveForm.valid"
+          >
+            Submit
+          </button>
+          <button mat-raised-button color="primary" (click)="updateValue()">
+            Update Form
+          </button>
+          <button mat-raised-button color="warn" (click)="setValue()">
+            Set Name Value
+          </button>
+        </div>
+      </section>
     </form>
   </mat-card-content>
 </mat-card>
