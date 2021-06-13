@@ -6,6 +6,8 @@ import { HelloComponent } from './hello.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { ReactiveFormComponent } from './reactive-form/reactive-form.component';
 import { RouterModule, Routes } from '@angular/router';
+import { MatSelectModule } from '@angular/material/select';
+import { MatInputModule } from '@angular/material/input';
 
 const appRoutes: Routes = [
   { path: 'reactive-form', component: ReactiveFormComponent },
@@ -18,6 +20,9 @@ const appRoutes: Routes = [
     FormsModule,
     ReactiveFormsModule,
     RouterModule,
+
+    MatInputModule,
+    MatSelectModule,
     RouterModule.forRoot(appRoutes)
   ],
   declarations: [AppComponent, HelloComponent, ReactiveFormComponent],
