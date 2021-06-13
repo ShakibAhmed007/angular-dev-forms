@@ -1,7 +1,7 @@
 <h2>Angular Forms</h2>
-<a [routerLink]="['/reactive-form']"> Reactive Form </a>
-<br/><br/>
-<hr>
-<hr>
-<br/>
-<router-outlet></router-outlet>
+<mat-tab-group mat-align-tabs="center">
+  <mat-tab label="Reactive Form">
+    <app-reactive-form></app-reactive-form>
+  </mat-tab>
+  <mat-tab label="Dynamic Form">Dynamic Form</mat-tab>
+</mat-tab-group>
