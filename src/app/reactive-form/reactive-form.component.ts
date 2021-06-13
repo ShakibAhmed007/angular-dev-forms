@@ -12,7 +12,8 @@ import {
   styleUrls: ['./reactive-form.component.css']
 })
 export class ReactiveFormComponent implements OnInit {
-  stateList: string[] = ['Dhaka', 'Khulna', 'Barisal'];
+  stateList: string[] = ['Dhaka', 'Khulna', 'Chattogram'];
+
   reactiveForm = this.fb.group({
     name: ['', Validators.required],
     password: ['', [Validators.required, Validators.minLength(5)]],
@@ -22,6 +23,7 @@ export class ReactiveFormComponent implements OnInit {
       city: ['']
     })
   });
+
   constructor(private fb: FormBuilder) {}
 
   ngOnInit() {}
@@ -35,6 +37,7 @@ export class ReactiveFormComponent implements OnInit {
     this.reactiveForm.patchValue({
       name: 'Nancy',
       password: '12345',
+      state: ['Dhaka', 'Chattogram'],
       address: {
         street: '123 Drew Street',
         city: 'Dhaka'
