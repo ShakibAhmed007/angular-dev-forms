@@ -43,6 +43,7 @@ import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatTreeModule } from '@angular/material/tree';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatFormFieldModule } from '@angular/material/form-field';
+import { FormArrayExampleComponent } from './form-array-example/form-array-example.component';
 
 @NgModule({
   imports: [
@@ -90,7 +91,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
     MatTreeModule
   ],
 
-  declarations: [AppComponent, HelloComponent, ReactiveFormComponent],
+  declarations: [AppComponent, HelloComponent, ReactiveFormComponent, FormArrayExampleComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule {}
