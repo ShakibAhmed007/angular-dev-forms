@@ -7,6 +7,18 @@ import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
   styleUrls: ['./form-array-example.component.css']
 })
 export class FormArrayExampleComponent {
+  data = [
+    {
+      title: 'Title 1'
+    },
+    {
+      title: 'Title 2'
+    },
+    {
+      title: 'Title 3'
+    }
+  ];
+
   form = this.fb.group({
     lessons: this.fb.array([])
   });
@@ -23,8 +35,7 @@ export class FormArrayExampleComponent {
 
   addLesson() {
     const lessonForm = this.fb.group({
-      title: ['', Validators.required],
-      level: ['beginner', Validators.required]
+      title: ['', Validators.required]
     });
     this.lessons.push(lessonForm);
   }
@@ -33,5 +44,19 @@ export class FormArrayExampleComponent {
     this.lessons.removeAt(lessonIndex);
   }
 
-  updateValue() {}
+  updateValue() {
+    this.form = this.fb.group({
+      lessons: this.fb.array(
+        this.data.map(item => {
+          return this.fb.group({
+            title: item['title']
+          });
+        })
+      )
+    });
+  }
+
+  onSubmit() {
+    console.log(this.lessons);
+  }
 }
