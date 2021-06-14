@@ -57,6 +57,6 @@ export class FormArrayExampleComponent {
   }
 
   onSubmit() {
-    console.log(this.lessons);
+    console.log(this.form.value);
   }
 }
