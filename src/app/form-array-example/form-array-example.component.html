@@ -2,7 +2,7 @@
 <form class="example-form" [formGroup]="form" novalidate>
   <ng-container formArrayName="lessons">
     <ng-container *ngFor="let lessonForm of lessons.controls; let i = index">
-      <div class="lesson-form-row" [formGroup]="lessonForm">
+      <div class="lesson-form-row" [formGroup]="getFormGroupAt(i)">
         <mat-form-field appearance="fill">
           <input matInput
                            formControlName="title"
@@ -15,8 +15,10 @@
             <mat-option value="advanced">Advanced</mat-option>
           </mat-select>
         </mat-form-field>
-        <mat-icon class="delete-btn" (click)="deleteLesson(i)">
-          delete_forever</mat-icon>
+
+        <button mat-mini-fab (click)="deleteLesson(i)">
+        <mat-icon>delete_forever</mat-icon>
+        </button>
       </div>
     </ng-container>
   </ng-container>

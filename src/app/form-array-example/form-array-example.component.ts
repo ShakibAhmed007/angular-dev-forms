@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormArray, FormBuilder, Validators } from '@angular/forms';
+import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-form-array-example',
@@ -15,6 +15,10 @@ export class FormArrayExampleComponent {
 
   get lessons() {
     return this.form.controls['lessons'] as FormArray;
+  }
+
+  getFormGroupAt(index) {
+    return this.lessons.at(index) as FormGroup;
   }
 
   addLesson() {
