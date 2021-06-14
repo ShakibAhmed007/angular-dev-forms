@@ -1,5 +1,5 @@
 <h3>Add Course Lessons:</h3>
-<div class="add-lessons-form" [formGroup]="form">
+<form class="example-form" [formGroup]="form" novalidate>
   <ng-container formArrayName="lessons">
     <ng-container *ngFor="let lessonForm of lessons.controls; let i = index">
       <div class="lesson-form-row" [formGroup]="lessonForm">
@@ -25,4 +25,4 @@
         <mat-icon class="add-course-btn">add</mat-icon>
     </button>
 
-</div>
+</form>
