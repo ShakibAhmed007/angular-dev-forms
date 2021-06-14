@@ -25,7 +25,8 @@
       </div>
     </ng-container>
   </ng-container>
-  <button mat-raised-button color="primary" type="submit">
+  <p>Form Status: {{form.status}}</p>
+  <button mat-raised-button color="primary" type="submit" [disabled]="!form.valid">
             Submit
           </button>
 </form>

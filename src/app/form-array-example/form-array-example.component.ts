@@ -49,7 +49,7 @@ export class FormArrayExampleComponent {
       lessons: this.fb.array(
         this.data.map(item => {
           return this.fb.group({
-            title: item['title']
+            title: [item['title'], Validators.required]
           });
         })
       )
