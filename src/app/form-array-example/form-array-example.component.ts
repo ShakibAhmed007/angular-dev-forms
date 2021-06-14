@@ -32,4 +32,6 @@ export class FormArrayExampleComponent {
   deleteLesson(lessonIndex: number) {
     this.lessons.removeAt(lessonIndex);
   }
+
+  updateValue() {}
 }
