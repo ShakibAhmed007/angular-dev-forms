@@ -6,24 +6,26 @@ import { FormArray, FormBuilder, Validators } from '@angular/forms';
   templateUrl: './form-array-example.component.html',
   styleUrls: ['./form-array-example.component.css']
 })
-export class FormArrayExampleComponent implements OnInit {
+export class FormArrayExampleComponent {
   form = this.fb.group({
     lessons: this.fb.array([])
   });
 
   constructor(private fb: FormBuilder) {}
 
-  ngOnInit() {}
-
-  addLesson() {
-    const formGroup = this.fb.group({
-      title: ['', Validators.required],
-      level: ['', Validators.required]
-    });
-    this.getLessons().push(formGroup);
+  get lessons() {
+    return this.form.controls['lessons'] as FormArray;
   }
 
-  getLessons() {
-    return this.form.controls['lessons'] as FormArray;
+  addLesson() {
+    const lessonForm = this.fb.group({
+      title: ['', Validators.required],
+      level: ['beginner', Validators.required]
+    });
+    this.lessons.push(lessonForm);
+  }
+
+  deleteLesson(lessonIndex: number) {
+    this.lessons.removeAt(lessonIndex);
   }
 }
