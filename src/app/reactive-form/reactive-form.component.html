@@ -8,8 +8,8 @@
             <input matInput placeholder="Name​" formControlName="name" />
           </mat-form-field>
           <div *ngIf="reactiveForm?.controls.name.touched" class="alert alert-danger" style="color: red">
-            <div *ngIf="reactiveForm?.controls.email.errors?.required">
-              *** Email is required.
+            <div *ngIf="reactiveForm?.controls.name.errors?.required">
+              *** Name is required.
             </div>
           </div>
         </div>
