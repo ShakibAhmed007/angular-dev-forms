@@ -18,11 +18,13 @@
             <mat-label> Email </mat-label>
             <input matInput placeholder="Email" formControlName="email" />
           </mat-form-field>
-          <div *ngIf="reactiveForm?.controls.email.touched" class="alert alert-danger" style="color: red">
-            <div *ngIf="reactiveForm?.controls.email.errors?.userExists">
+          <div
+            *ngIf="!reactiveForm.controls.email.valid && (reactiveForm?.controls.email.dirty || reactiveForm?.controls.email.touched)"
+            class="alert alert-danger" style="color: red">
+            <div *ngIf="reactiveForm.controls.email.errors?.userExists">
               *** OOps...User Exists with this email !!! .
             </div>
-            <div *ngIf="reactiveForm?.controls.email.errors?.required">
+            <div *ngIf="reactiveForm.controls.email.errors?.required">
               *** Email is required.
             </div>
           </div>

@@ -19,7 +19,7 @@ export function userExistsValidator(): AsyncValidatorFn {
     if (control.value === 's@gmail.com') {
       return of({ userExists: true });
     } else {
-      return null;
+      return of(null);
     }
   };
 }
