@@ -6,6 +6,7 @@ import {
   Validators
 } from '@angular/forms';
 import { passwordStrengthValidator } from '../shared/password-validator.directive';
+import { userExistsValidator } from '../shared/user-exists-validator.directive';
 
 @Component({
   selector: 'app-reactive-form',
@@ -17,14 +18,14 @@ export class ReactiveFormComponent implements OnInit {
 
   reactiveForm = this.fb.group({
     name: ['', Validators.required],
-    email: ['', [Validators.required, Validators.email]],
+    email: ['', [Validators.required, Validators.email, userExistsValidator()]],
     password: [
       '',
       [
         Validators.required,
         Validators.minLength(5),
         Validators.maxLength(10),
-        passwordStrengthValidator()
+        passwordStrengthValidator() // custtom validator
       ]
     ],
     state: ['', Validators.required],
