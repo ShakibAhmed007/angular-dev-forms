@@ -15,18 +15,25 @@ import { userExistsValidator } from '../shared/user-exists-validator.directive';
 })
 export class ReactiveFormComponent implements OnInit {
   stateList: string[] = ['Dhaka', 'Khulna', 'Chattogram'];
-
   reactiveForm = this.fb.group({
     name: ['', Validators.required],
-    email: ['', [Validators.required, Validators.email, userExistsValidator()]],
+    email: [
+      '',
+      {
+        validators: [Validators.required, Validators.email],
+        asyncValidators: [userExistsValidator()] // custom async validator
+      }
+    ],
     password: [
       '',
-      [
-        Validators.required,
-        Validators.minLength(5),
-        Validators.maxLength(10),
-        passwordStrengthValidator() // custtom validator
-      ]
+      {
+        validators: [
+          Validators.required,
+          Validators.minLength(5),
+          Validators.maxLength(10),
+          passwordStrengthValidator() // custom validator
+        ]
+      }
     ],
     state: ['', Validators.required],
     address: this.fb.group({
@@ -50,7 +57,8 @@ export class ReactiveFormComponent implements OnInit {
   updateValue() {
     this.reactiveForm.patchValue({
       name: 'Nancy',
-      password: '12345',
+      email: 's1@gmail.com',
+      password: 'Ss12345',
       state: ['Dhaka', 'Chattogram'],
       address: {
         street: '123 Drew Street',
