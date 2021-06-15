@@ -21,8 +21,7 @@ export class ReactiveFormComponent implements OnInit {
       '',
       {
         validators: [Validators.required, Validators.email],
-        asyncValidators: [userExistsValidator()], // custom async validator
-        updateOn: 'blur'
+        asyncValidators: [userExistsValidator()] // custom async validator
       }
     ],
     password: [
