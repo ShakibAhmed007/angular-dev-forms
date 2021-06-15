@@ -22,7 +22,16 @@ export class ReactiveFormComponent implements OnInit {
         validators: [Validators.required, Validators.email]
       }
     ],
-    password: ['', [Validators.required, Validators.minLength(5)]],
+    password: [
+      '',
+      {
+        validators: [
+          Validators.required,
+          Validators.minLength(5),
+          Validators.maxLength(10)
+        ]
+      }
+    ],
     state: ['', Validators.required],
     address: this.fb.group({
       street: ['', Validators.required],
