@@ -14,6 +14,7 @@ export class DynamicFormExampleComponent implements OnInit {
   form!: FormGroup;
   payLoad = '';
   questions: Observable<QuestionBase<any>[]>;
+  data: QuestionBase<string>[] | null = [];
 
   constructor(
     private qcs: QuestionControlService,
@@ -23,8 +24,17 @@ export class DynamicFormExampleComponent implements OnInit {
   ngOnInit() {
     this.questions = this.questionService.getQuestions();
     this.questions.subscribe(res => {
-      console.log('Form ---', res);
+      this.data = res as QuestionBase<string>[];
+      console.log('Form ---', this.data);
       this.form = this.qcs.toFormGroup(res as QuestionBase<string>[]);
     });
+  }
+
+  get isValid() {
+    return this.form.controls[this.data['key']].valid;
+  }
+
+  onSubmit() {
+    this.payLoad = JSON.stringify(this.form.getRawValue());
   }
 }
