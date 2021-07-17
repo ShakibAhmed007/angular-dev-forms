@@ -1,9 +1,11 @@
 import { Injectable } from '@angular/core';
 import { of } from 'rxjs';
+import { QuestionBase } from '../model/question-base';
+import { DropdownQuestion } from '../model/question-dropdown';
+import { TextboxQuestion } from '../model/question-textbox';
 
 @Injectable({ providedIn: 'root' })
 export class QuestionService {
-  // TODO: get from a remote source of question metadata
   getQuestions() {
     const questions: QuestionBase<string>[] = [
       new DropdownQuestion({
