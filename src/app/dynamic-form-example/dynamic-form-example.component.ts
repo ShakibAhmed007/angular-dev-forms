@@ -3,7 +3,7 @@ import { FormGroup } from '@angular/forms';
 import { Observable } from 'rxjs';
 import { QuestionBase } from './model/question-base';
 import { QuestionControlService } from './service/question-control.service';
-import { QuestionService } from './service/question-control.service';
+import { QuestionService } from './service/question.service';
 
 @Component({
   selector: 'app-dynamic-form-example',
