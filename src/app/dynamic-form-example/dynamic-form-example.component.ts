@@ -22,11 +22,9 @@ export class DynamicFormExampleComponent implements OnInit {
 
   ngOnInit() {
     this.questions = this.questionService.getQuestions();
-    console.log(this.questions);
-    if (this.questions) {
-      this.form = this.qcs.toFormGroup((this.questions as any) as QuestionBase<
-        string
-      >[]);
-    }
+    this.questions.subscribe(res => {
+      console.log('Form ---', res);
+      this.form = this.qcs.toFormGroup(res as QuestionBase<string>[]);
+    });
   }
 }
