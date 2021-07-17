@@ -17,10 +17,13 @@ export class DynamicFormExampleComponent implements OnInit {
   payLoad = '';
   questions$: Observable<QuestionBase<any>[]>;
 
-  constructor(private qcs: QuestionControlService, service: QuestionService) {}
+  constructor(
+    private qcs: QuestionControlService,
+    questionService: QuestionService
+  ) {}
 
   ngOnInit() {
-    this.questions$ = service.getQuestions();
+    this.questions$ = this.questionService.getQuestions();
     if (this.questions$) {
       this.form = this.qcs.toFormGroup(this.questions as QuestionBase<
         string
