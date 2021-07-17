@@ -1,10 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup } from '@angular/forms';
-import { of } from 'rxjs';
+import { of, Observable } from 'rxjs';
 import { QuestionBase } from './model/question-base';
 import { DropdownQuestion } from './model/question-dropdown';
 import { TextboxQuestion } from './model/question-textbox';
 import { QuestionControlService } from './service/question-control.service';
+import { QuestionService } from './service/question-control.service';
 
 @Component({
   selector: 'app-dynamic-form-example',
@@ -14,11 +15,17 @@ import { QuestionControlService } from './service/question-control.service';
 export class DynamicFormExampleComponent implements OnInit {
   form!: FormGroup;
   payLoad = '';
+  questions$: Observable<QuestionBase<any>[]>;
 
-  constructor(private qcs: QuestionControlService) {}
+  constructor(private qcs: QuestionControlService, service: QuestionService) {}
 
   ngOnInit() {
-    this.form = this.qcs.toFormGroup(this.getQuestions());
+    this.questions$ = service.getQuestions();
+    if (this.questions$) {
+      this.form = this.qcs.toFormGroup(this.questions as QuestionBase<
+        string
+      >[]);
+    }
   }
 
   // TODO: get from a remote source of question metadata
