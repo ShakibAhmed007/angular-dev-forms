@@ -45,6 +45,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { FormArrayExampleComponent } from './form-array-example/form-array-example.component';
 import { DynamicFormExampleComponent } from './dynamic-form-example/dynamic-form-example.component';
+import { QuestionFormComponent } from './question-form/question-form.component';
 
 @NgModule({
   imports: [
@@ -92,7 +93,7 @@ import { DynamicFormExampleComponent } from './dynamic-form-example/dynamic-form
     MatTreeModule
   ],
 
-  declarations: [AppComponent, HelloComponent, ReactiveFormComponent, FormArrayExampleComponent, DynamicFormExampleComponent],
+  declarations: [AppComponent, HelloComponent, ReactiveFormComponent, FormArrayExampleComponent, DynamicFormExampleComponent, QuestionFormComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule {}

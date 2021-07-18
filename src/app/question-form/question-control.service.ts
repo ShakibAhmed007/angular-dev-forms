@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { QuestionBase } from '../model/question-base';
+import { QuestionBase } from '../dynamic-form-example/model/question-base';
 
 @Injectable({providedIn: 'root'})
 export class QuestionControlService {
