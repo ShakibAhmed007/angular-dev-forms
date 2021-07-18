@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import { of } from 'rxjs';
-import { QuestionBase } from '../dynamic-form-example/model/question-base';
-import { DropdownQuestion } from '../dynamic-form-example/model/question-dropdown';
-import { TextboxQuestion } from '../dynamic-form-example/model/question-textbox';
+import { QuestionBase } from '../../dynamic-form-example/model/question-base';
+import { DropdownQuestion } from '../../dynamic-form-example/model/question-dropdown';
+import { TextboxQuestion } from '../../dynamic-form-example/model/question-textbox';
 
 @Injectable({ providedIn: 'root' })
 export class QuestionService {
