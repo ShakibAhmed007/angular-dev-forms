@@ -14,6 +14,7 @@ import { userExistsValidator } from '../shared/user-exists-validator.directive';
   styleUrls: ['./reactive-form.component.css']
 })
 export class ReactiveFormComponent implements OnInit {
+  submitted = false;
   stateList: string[] = ['Dhaka', 'Khulna', 'Chattogram'];
   reactiveForm = this.fb.group({
     name: ['', Validators.required],
@@ -47,9 +48,12 @@ export class ReactiveFormComponent implements OnInit {
   ngOnInit() {}
 
   onSubmit() {
+    this.submitted = true;
+    if (!this.reactiveForm.valid) {
+      return;
+    }
     // Get all value
     console.log(this.reactiveForm.value);
-
     // Get specific form field value
     console.log(this.reactiveForm.controls['name'].value);
   }

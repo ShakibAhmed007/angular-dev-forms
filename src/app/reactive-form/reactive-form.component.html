@@ -7,8 +7,8 @@
             <mat-label> Name </mat-label>
             <input matInput placeholder="Name​" formControlName="name" />
           </mat-form-field>
-          <div *ngIf="reactiveForm?.controls.name.touched" class="alert alert-danger" style="color: red">
-            <div *ngIf="reactiveForm?.controls.name.errors?.required">
+          <div class="alert alert-danger" style="color: red">
+            <div *ngIf="submitted && reactiveForm?.controls.name.errors?.required">
               *** Name is required.
             </div>
           </div>
@@ -87,7 +87,6 @@
           <button
             mat-raised-button
             type="submit"
-            [disabled]="!reactiveForm.valid"
           >
             Submit
           </button>
