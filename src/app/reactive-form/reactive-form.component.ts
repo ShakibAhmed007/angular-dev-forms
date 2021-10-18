@@ -59,7 +59,7 @@ export class ReactiveFormComponent implements OnInit {
   }
 
   /**
-   * Differnce between set value and patch value isDisabled
+   * Differnce between set value and patch value is
    * set value requires all defined controls of formgroup
    * but in patchValue we can pass any control
    */
