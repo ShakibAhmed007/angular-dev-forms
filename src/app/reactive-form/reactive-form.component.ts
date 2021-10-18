@@ -3,7 +3,7 @@ import {
   FormBuilder,
   FormControl,
   FormGroup,
-  Validators
+  Validators,
 } from '@angular/forms';
 import { passwordStrengthValidator } from '../shared/password-validator.directive';
 import { userExistsValidator } from '../shared/user-exists-validator.directive';
@@ -11,7 +11,7 @@ import { userExistsValidator } from '../shared/user-exists-validator.directive';
 @Component({
   selector: 'app-reactive-form',
   templateUrl: './reactive-form.component.html',
-  styleUrls: ['./reactive-form.component.css']
+  styleUrls: ['./reactive-form.component.css'],
 })
 export class ReactiveFormComponent implements OnInit {
   submitted = false;
@@ -22,8 +22,8 @@ export class ReactiveFormComponent implements OnInit {
       '',
       {
         validators: [Validators.required, Validators.email],
-        asyncValidators: [userExistsValidator()] // custom async validator
-      }
+        asyncValidators: [userExistsValidator()], // custom async validator
+      },
     ],
     password: [
       '',
@@ -32,15 +32,15 @@ export class ReactiveFormComponent implements OnInit {
           Validators.required,
           Validators.minLength(5),
           Validators.maxLength(10),
-          passwordStrengthValidator() // custom validator
-        ]
-      }
+          passwordStrengthValidator(), // custom validator
+        ],
+      },
     ],
     state: ['', Validators.required],
     address: this.fb.group({
       street: ['', Validators.required],
-      city: ['']
-    })
+      city: [''],
+    }),
   });
 
   constructor(private fb: FormBuilder) {}
@@ -58,20 +58,30 @@ export class ReactiveFormComponent implements OnInit {
     console.log(this.reactiveForm.controls['name'].value);
   }
 
-  updateValue() {
-    this.reactiveForm.patchValue({
+  /**
+   * Differnce between set value and patch value isDisabled
+   * set value requires all defined controls of formgroup
+   * but in patchValue we can pass any control
+   */
+  setValue() {
+    // all field
+    this.reactiveForm.setValue({
       name: 'Nancy',
       email: 's1@gmail.com',
       password: 'Ss12345',
       state: ['Dhaka', 'Chattogram'],
       address: {
         street: '123 Drew Street',
-        city: 'Dhaka'
-      }
+        city: 'Dhaka',
+      },
     });
   }
 
-  setValue() {
-    this.reactiveForm.controls['name'].setValue('SKB');
+  patchValue() {
+    // only two field
+    this.reactiveForm.patchValue({
+      name: 'Nancy',
+      email: 's1@gmail.com',
+    });
   }
 }
