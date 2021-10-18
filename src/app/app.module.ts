@@ -46,6 +46,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { FormArrayExampleComponent } from './form-array-example/form-array-example.component';
 import { DynamicFormExampleComponent } from './dynamic-form-example/dynamic-form-example.component';
 import { QuestionFormComponent } from './question-form/question-form.component';
+import { FormValidationAtRuntimeComponent } from './form-validation-at-runtime/form-validation-at-runtime.component';
 
 @NgModule({
   imports: [
@@ -90,10 +91,18 @@ import { QuestionFormComponent } from './question-form/question-form.component';
     MatTabsModule,
     MatToolbarModule,
     MatTooltipModule,
-    MatTreeModule
+    MatTreeModule,
   ],
 
-  declarations: [AppComponent, HelloComponent, ReactiveFormComponent, FormArrayExampleComponent, DynamicFormExampleComponent, QuestionFormComponent],
-  bootstrap: [AppComponent]
+  declarations: [
+    AppComponent,
+    HelloComponent,
+    ReactiveFormComponent,
+    FormArrayExampleComponent,
+    DynamicFormExampleComponent,
+    QuestionFormComponent,
+    FormValidationAtRuntimeComponent,
+  ],
+  bootstrap: [AppComponent],
 })
 export class AppModule {}

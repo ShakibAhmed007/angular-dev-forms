@@ -1,0 +1,47 @@
+<mat-card class="example-card">
+  <mat-card-content>
+    <form
+      [formGroup]="reactiveForm"
+      (ngSubmit)="onSubmit()"
+      novalidate
+      class="example-form"
+    >
+      <div class="row">
+        <div class="col-md-12">
+          <mat-form-field appearance="standard">
+            <mat-label> Name </mat-label>
+            <input matInput placeholder="Name​" formControlName="name" />
+          </mat-form-field>
+          <div class="alert alert-danger" style="color: red"></div>
+        </div>
+        <div class="col-md-12">
+          <mat-form-field appearance="standard">
+            <mat-label> Email </mat-label>
+            <input matInput placeholder="Email" formControlName="email" />
+          </mat-form-field>
+          <div
+            *ngIf="
+              !reactiveForm.controls.email.valid &&
+              (reactiveForm?.controls.email.dirty ||
+                reactiveForm?.controls.email.touched)
+            "
+            class="alert alert-danger"
+            style="color: red"
+          >
+            <div *ngIf="reactiveForm.controls.email.errors?.required">
+              *** Email is required.
+            </div>
+          </div>
+        </div>
+      </div>
+      <p>Form Status : {{ reactiveForm.status }}</p>
+      <br />
+
+      <section>
+        <div class="example-button-row">
+          <button mat-raised-button type="submit" *ngIf="reactiveForm">Submit</button>
+        </div>
+      </section>
+    </form>
+  </mat-card-content>
+</mat-card>
