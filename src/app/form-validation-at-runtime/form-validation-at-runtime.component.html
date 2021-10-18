@@ -39,9 +39,15 @@
 
       <section>
         <div class="example-button-row">
-          <button mat-raised-button type="submit" *ngIf="reactiveForm">Submit</button>
+          <button mat-raised-button type="submit" *ngIf="reactiveForm">
+            Submit
+          </button>
         </div>
       </section>
     </form>
   </mat-card-content>
 </mat-card>
+
+<br />Dirty: {{ reactiveForm.dirty }} <br />Touched: {{ reactiveForm.touched }}
+<br />Valid: {{ reactiveForm.valid }} <br />Value:
+{{ reactiveForm.value | json }}
