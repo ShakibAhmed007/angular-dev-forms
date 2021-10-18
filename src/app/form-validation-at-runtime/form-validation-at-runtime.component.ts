@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-form-validation-at-runtime',
@@ -7,19 +7,17 @@ import { FormBuilder, Validators } from '@angular/forms';
   styleUrls: ['./form-validation-at-runtime.component.css'],
 })
 export class FormValidationAtRuntimeComponent implements OnInit {
-  reactiveForm = this.fb.group({
-    name: ['', Validators.required],
-    email: [
-      '',
-      {
-        validators: [Validators.required, Validators.email],
-      },
-    ],
-  });
+  reactiveForm: FormGroup;
 
   constructor(private fb: FormBuilder) {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.reactiveForm = this.fb.group({
+      name: ['', Validators.required],
+      email: ['', [Validators.required, Validators.email]],
+      phone: ['', [Validators.required]],
+    });
+  }
 
   onSubmit() {
     if (!this.reactiveForm.valid) {
