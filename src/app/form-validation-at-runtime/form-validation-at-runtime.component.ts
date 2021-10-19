@@ -15,9 +15,22 @@ export class FormValidationAtRuntimeComponent implements OnInit {
     this.reactiveForm = this.fb.group({
       name: ['', Validators.required],
       email: ['', [Validators.required, Validators.email]],
-      phone: ['', [Validators.required]],
-      notificationType: ['email']
+      phone: [''],
+      notificationType: ['email'],
     });
+
+    this.reactiveForm
+      .get('notificationType')
+      .valueChanges.subscribe((value) => {
+        console.log(value);
+        let phoneControl = this.reactiveForm.get('phone');
+        if (value === 'text') {
+          phoneControl.setValidators([Validators.required]);
+        } else {
+          phoneControl.clearValidators();
+        }
+        phoneControl.updateValueAndValidity();
+      });
   }
 
   onSubmit() {
