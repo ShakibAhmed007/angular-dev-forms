@@ -25,6 +25,16 @@
             <input matInput placeholder="Email" formControlName="phone" />
           </mat-form-field>
         </div>
+        <div class="col-md-12">
+          <mat-radio-group aria-label="Select an option">
+            <mat-radio-button value="email" formControlName="notificationType"
+              >Email</mat-radio-button
+            >
+            <mat-radio-button value="text" formControlName="notificationType"
+              >Text</mat-radio-button
+            >
+          </mat-radio-group>
+        </div>
       </div>
       <section>
         <div class="example-button-row">

@@ -16,6 +16,7 @@ export class FormValidationAtRuntimeComponent implements OnInit {
       name: ['', Validators.required],
       email: ['', [Validators.required, Validators.email]],
       phone: ['', [Validators.required]],
+      notificationType: ['email']
     });
   }
 
