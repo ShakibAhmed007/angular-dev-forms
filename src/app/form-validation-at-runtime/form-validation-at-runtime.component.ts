@@ -19,10 +19,13 @@ export class FormValidationAtRuntimeComponent implements OnInit {
       notificationType: ['email'],
     });
 
+    /**
+     * Add validity for phone field based on
+     * notification type selection
+     */
     this.reactiveForm
       .get('notificationType')
       .valueChanges.subscribe((value) => {
-        console.log(value);
         let phoneControl = this.reactiveForm.get('phone');
         if (value === 'text') {
           phoneControl.setValidators([Validators.required]);
