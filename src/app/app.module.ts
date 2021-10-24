@@ -47,6 +47,7 @@ import { FormArrayExampleComponent } from './form-array-example/form-array-examp
 import { DynamicFormExampleComponent } from './dynamic-form-example/dynamic-form-example.component';
 import { QuestionFormComponent } from './question-form/question-form.component';
 import { FormValidationAtRuntimeComponent } from './form-validation-at-runtime/form-validation-at-runtime.component';
+import { CrossFieldValidationComponent } from './cross-field-validation/cross-field-validation.component';
 
 @NgModule({
   imports: [
@@ -102,6 +103,7 @@ import { FormValidationAtRuntimeComponent } from './form-validation-at-runtime/f
     DynamicFormExampleComponent,
     QuestionFormComponent,
     FormValidationAtRuntimeComponent,
+    CrossFieldValidationComponent,
   ],
   bootstrap: [AppComponent],
 })
