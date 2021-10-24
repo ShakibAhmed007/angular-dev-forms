@@ -13,6 +13,7 @@ export class CrossFieldValidationComponent implements OnInit {
 
   ngOnInit() {
     this.reactiveForm = this.fb.group({
+      
       name: ['', Validators.required],
       email: ['', [Validators.required, Validators.email]],
       phone: [''],
